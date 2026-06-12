@@ -3,326 +3,161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Para Pilar ❤️</title>
+
+<script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
 body{
-    background:linear-gradient(135deg,#f7f0e9,#efe4d5);
-    height:100vh;
+    margin:0;
+    background:#e9dfd2;
     display:flex;
     justify-content:center;
     align-items:center;
-    font-family:Georgia, serif;
-    overflow:hidden;
+    height:100vh;
+    font-family:Georgia,serif;
 }
 
-.book{
-    position:relative;
-    width:350px;
-    height:500px;
-    perspective:2500px;
+#book{
+    width:900px;
+    height:600px;
 }
 
 .page{
-    position:absolute;
-    width:100%;
-    height:100%;
-    transform-origin:left center;
-    transition:1s ease;
-    transform-style:preserve-3d;
-}
-
-.page.flipped{
-    transform:rotateY(-180deg);
-}
-
-.front,
-.back{
-    position:absolute;
-    width:100%;
-    height:100%;
-    backface-visibility:hidden;
-    border-radius:12px;
-    overflow:hidden;
     background:white;
-    box-shadow:0 10px 30px rgba(0,0,0,.18);
-}
-
-.back{
-    transform:rotateY(180deg);
-}
-
-.cover{
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
-    text-align:center;
+    flex-direction:column;
     padding:30px;
-    background:linear-gradient(
-        rgba(255,255,255,.92),
-        rgba(255,255,255,.92)
-    ),
-    url('https://images.unsplash.com/photo-1518895949257-7621c3c786d7?q=80&w=1200');
-    background-size:cover;
+    box-sizing:border-box;
 }
 
-.cover h1{
-    color:#b05c8b;
-    font-size:2.5rem;
-    margin-bottom:10px;
-}
-
-.cover p{
-    color:#555;
-}
-
-.photo{
+.page img{
     width:100%;
     height:100%;
     object-fit:cover;
 }
 
-.text-page{
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+.cover{
+    background:#fff7f9;
     text-align:center;
-    padding:30px;
-    background:#fffdf9;
 }
 
-.text-page h2{
-    color:#b05c8b;
-    margin-bottom:20px;
+.cover h1{
+    color:#c44f88;
+    font-size:3rem;
 }
 
-.text-page p{
-    color:#444;
-    line-height:1.8;
+.cover p{
+    color:#666;
 }
 
 .final{
-    background:linear-gradient(135deg,#fff5f8,#ffffff);
+    text-align:center;
 }
 
 .final h1{
     color:#d43f7f;
-    margin-bottom:20px;
 }
 
-.arrow{
-    position:fixed;
-    top:50%;
-    transform:translateY(-50%);
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    background:white;
-    box-shadow:0 5px 20px rgba(0,0,0,.2);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:34px;
-    cursor:pointer;
-    user-select:none;
-    transition:.25s;
-}
+@media(max-width:900px){
 
-.arrow:hover{
-    transform:translateY(-50%) scale(1.1);
-}
-
-.left{
-    left:30px;
-}
-
-.right{
-    right:30px;
-}
-
-@media(max-width:700px){
-
-    .book{
-        width:280px;
-        height:420px;
+    #book{
+        width:100%;
+        height:100vh;
     }
 
-    .arrow{
-        width:50px;
-        height:50px;
-        font-size:28px;
-    }
 }
-
 </style>
 </head>
+
 <body>
 
-<div class="book">
+<div id="book">
 
-    <!-- PORTADA -->
-    <div class="page" id="page1">
-
-        <div class="front cover">
-            <h1>Para Pilar ❤️</h1>
-            <p>Un pequeño regalo para una gran amiga</p>
-        </div>
-
-        <div class="back">
-            <img src="foto1.jpg" class="photo">
-        </div>
-
+    <div class="page cover">
+        <h1>Para Pilar ❤️</h1>
+        <p>Un pequeño regalo para una gran amiga</p>
     </div>
 
-    <!-- FOTO 1 -->
-    <div class="page" id="page2">
-
-        <div class="front text-page">
-            <h2>🎂 Feliz Cumpleaños</h2>
-
-            <p>
-                Amiga de mi corazón ❤️
-                <br><br>
-                Hoy celebramos a una persona maravillosa.
-            </p>
-        </div>
-
-        <div class="back">
-            <img src="foto2.jpg" class="photo">
-        </div>
-
+    <div class="page">
+        <img src="foto1.jpg">
     </div>
 
-    <!-- FOTO 2 -->
-    <div class="page" id="page3">
+    <div class="page">
+        <h2>🎂 Feliz Cumpleaños</h2>
 
-        <div class="front text-page">
-            <h2>✨ Gracias por tu amistad</h2>
-
-            <p>
-                Alegre<br>
-                Bondadosa<br>
-                Apasionada<br>
-                Espiritual<br>
-                Única ❤️
-            </p>
-        </div>
-
-        <div class="back">
-            <img src="carta.jpg" class="photo">
-        </div>
-
+        <p>
+        Amiga de mi corazón ❤️
+        <br><br>
+        Hoy celebramos a una persona maravillosa.
+        </p>
     </div>
 
-    <!-- FINAL -->
-    <div class="page" id="page4">
+    <div class="page">
+        <img src="foto2.jpg">
+    </div>
 
-        <div class="front text-page final">
+    <div class="page">
+        <h2>✨ Gracias por tu amistad</h2>
 
-            <h1>💌</h1>
+        <p>
+        Alegre<br>
+        Bondadosa<br>
+        Apasionada<br>
+        Espiritual<br>
+        Única ❤️
+        </p>
+    </div>
 
-            <p>
-                Me siento increíblemente afortunada
-                de tenerte en mi vida.
-                <br><br>
-                Lo que hemos construido es un vínculo
-                fuerte y verdadero.
-                <br><br>
-                Deseo que cumplas cada uno de tus sueños.
-            </p>
+    <div class="page">
+        <img src="carta.jpg">
+    </div>
 
-        </div>
+    <div class="page final">
 
-        <div class="back text-page final">
+        <h1>¡Te adoro muchísimo! ❤️</h1>
 
-            <h1>¡Te adoro muchísimo! ❤️</h1>
-
-            <p>
-                Con mucho amor
-                <br><br>
-                <strong>Tania</strong>
-                <br><br>
-                Junio 11 de 2026
-            </p>
-
-        </div>
+        <p>
+        Con mucho amor
+        <br><br>
+        Tania
+        <br><br>
+        Junio 11 de 2026
+        </p>
 
     </div>
 
 </div>
 
-<div class="arrow left" onclick="prevPage()">❮</div>
-<div class="arrow right" onclick="nextPage()">❯</div>
-
 <script>
 
-const pages = document.querySelectorAll('.page');
-let current = 0;
+const pageFlip = new St.PageFlip(
+    document.getElementById("book"),
+    {
+        width:450,
+        height:600,
 
-function updatePages(){
+        size:"stretch",
 
-    pages.forEach((page,index)=>{
+        minWidth:315,
+        maxWidth:1000,
 
-        if(index < current){
+        minHeight:420,
+        maxHeight:1350,
 
-            page.classList.add('flipped');
-            page.style.zIndex = index;
+        showCover:true,
 
-        }else{
-
-            page.classList.remove('flipped');
-            page.style.zIndex = pages.length - index;
-
-        }
-
-    });
-
-}
-
-function nextPage(){
-
-    if(current < pages.length){
-
-        current++;
-        updatePages();
-
+        mobileScrollSupport:true
     }
+);
 
-}
-
-function prevPage(){
-
-    if(current > 0){
-
-        current--;
-        updatePages();
-
-    }
-
-}
-
-document.addEventListener('keydown',(e)=>{
-
-    if(e.key === "ArrowRight"){
-        nextPage();
-    }
-
-    if(e.key === "ArrowLeft"){
-        prevPage();
-    }
-
-});
-
-updatePages();
+pageFlip.loadFromHTML(
+    document.querySelectorAll(".page")
+);
 
 </script>
 
