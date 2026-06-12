@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Pilar ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:linear-gradient(135deg,#f7f0e9,#efe4d5);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Georgia, serif;
+    overflow:hidden;
+}
+
+.book{
+    position:relative;
+    width:350px;
+    height:500px;
+    perspective:2000px;
+}
+
+.page{
+    position:absolute;
+    width:100%;
+    height:100%;
+    transform-origin:left;
+    transition:1.2s;
+    transform-style:preserve-3d;
+    cursor:pointer;
+}
+
+.page.flipped{
+    transform:rotateY(-180deg);
+}
+
+.front,
+.back{
+    position:absolute;
+    width:100%;
+    height:100%;
+    backface-visibility:hidden;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+.front{
+    background:white;
+}
+
+.back{
+    background:white;
+    transform:rotateY(180deg);
+}
+
+.cover{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:
+    linear-gradient(rgba(255,255,255,.9),
+    rgba(255,255,255,.9)),
+    url('https://images.unsplash.com/photo-1518895949257-7621c3c786d7?q=80&w=1200');
+    background-size:cover;
+}
+
+.cover h1{
+    color:#b05c8b;
+    font-size:2.5rem;
+}
+
+.cover p{
+    margin-top:15px;
+    color:#666;
+}
+
+.photo{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.text-page{
+    padding:30px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    height:100%;
+    text-align:center;
+    background:#fffdf9;
+}
+
+.text-page h2{
+    color:#b05c8b;
+    margin-bottom:20px;
+}
+
+.text-page p{
+    line-height:1.8;
+    color:#444;
+}
+
+.final{
+    background:linear-gradient(135deg,#fff5f8,#fff);
+}
+
+.final h1{
+    color:#d43f7f;
+    margin-bottom:20px;
+}
+
+.controls{
+    position:fixed;
+    bottom:30px;
+    display:flex;
+    gap:10px;
+}
+
+button{
+    border:none;
+    background:#b05c8b;
+    color:white;
+    padding:12px 18px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+</style>
+</head>
+<body>
+
+<div class="book">
+
+    <!-- PORTADA -->
+    <div class="page" id="page1" style="z-index:4">
+        <div class="front cover">
+            <h1>Para Pilar ❤️</h1>
+            <p>Un pequeño regalo para una gran amiga</p>
+        </div>
+
+        <div class="back">
+            <img src="foto1.jpg" class="photo">
+        </div>
+    </div>
+
+    <!-- FOTO 1 -->
+    <div class="page" id="page2" style="z-index:3">
+        <div class="front text-page">
+            <h2>🎂 Feliz Cumpleaños</h2>
+
+            <p>
+                Amiga de mi corazón ❤️
+                <br><br>
+                Hoy celebramos a una persona maravillosa.
+            </p>
+        </div>
+
+        <div class="back">
+            <img src="foto2.jpg" class="photo">
+        </div>
+    </div>
+
+    <!-- FOTO 2 -->
+    <div class="page" id="page3" style="z-index:2">
+        <div class="front text-page">
+            <h2>✨ Gracias por tu amistad</h2>
+
+            <p>
+                Alegre<br>
+                Bondadosa<br>
+                Apasionada<br>
+                Espiritual<br>
+                Única ❤️
+            </p>
+        </div>
+
+        <div class="back">
+            <img src="carta.jpg" class="photo">
+        </div>
+    </div>
+
+    <!-- FINAL -->
+    <div class="page" id="page4" style="z-index:1">
+        <div class="front text-page final">
+            <h1>💌</h1>
+
+            <p>
+                Me siento increíblemente afortunada
+                de tenerte en mi vida.
+                <br><br>
+                Lo que hemos construido es un vínculo
+                fuerte y verdadero.
+                <br><br>
+                Deseo que cumplas cada uno de tus sueños.
+            </p>
+        </div>
+
+        <div class="back text-page final">
+            <h1>¡Te adoro muchísimo! ❤️</h1>
+
+            <p>
+                Con mucho amor,
+                <br><br>
+                <strong>Tania</strong>
+                <br><br>
+                Junio 11 de 2026
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<div class="controls">
+    <button onclick="prevPage()">⬅ Atrás</button>
+    <button onclick="nextPage()">Siguiente ➡</button>
+</div>
+
+<script>
+
+const pages = document.querySelectorAll('.page');
+let current = 0;
+
+function nextPage(){
+
+    if(current < pages.length){
+        pages[current].classList.add('flipped');
+        current++;
+    }
+}
+
+function prevPage(){
+
+    if(current > 0){
+        current--;
+        pages[current].classList.remove('flipped');
+    }
+}
+
+</script>
+
+</body>
+</html>
